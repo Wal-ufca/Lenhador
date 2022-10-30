@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     public float jumpForce = 0;
     public int health = 0;
 
-    //public GameObject bow;
-   // public Transform firePoint;
+    public GameObject weapon1;
+    public Transform attackPoint1;
 
     private bool isJumping;
     private bool doubleJump;
-    private bool isFire;
+    private bool isAttack;
 
     private Rigidbody2D rig;
     private Animator anim;
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
 
         Jump();
-       // BowFire();
+        WeaponAttack();
 
     }
 
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         }
 
         /// parado
-        if (movement == 0 && !isJumping /*&& !isFire*/)
+        if (movement == 0 && !isJumping && !isAttack)
         {
             //animacao do player para ele parado
             anim.SetInteger("transition", 0);
@@ -137,6 +137,45 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             isJumping = false;
+        }
+    }
+
+    //funcao para o player atirar frexa
+    void WeaponAttack()
+    {
+        //chamar a corrotina
+        StartCoroutine("Attack1");
+
+    }
+
+    //criar uma rotina, primeiro faz alguma acao e depois de um determinado tempo faz outra
+    IEnumerator Attack1()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isAttack = true;
+            anim.SetInteger("transition", 3);
+
+            //criar a frecha em certa posicao
+            GameObject WeaponAttack = Instantiate(weapon1, attackPoint1.position, attackPoint1.rotation);
+
+            //mudar a direcao da frecha
+            if (transform.rotation.y == 0)
+            {
+                // modificar a variavel isRight no script Bow
+                WeaponAttack.GetComponent<Weapon>().isRight = true;
+
+            }
+
+            if (transform.rotation.y == 180)
+            {
+                WeaponAttack.GetComponent<Weapon>().isRight = false;
+            }
+
+            //tempo em segundo para a executar a proxima acao
+            yield return new WaitForSeconds(0.25f);
+            isAttack = false;
+            anim.SetInteger("transition", 0);
         }
     }
 
