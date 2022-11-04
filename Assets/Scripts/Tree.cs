@@ -16,6 +16,7 @@ public class Tree : MonoBehaviour
 
     public GameObject snake;
     public GameObject bat;
+    public GameObject bat2;
     public int scoreVolue;
 
     private bool cortada;
@@ -72,6 +73,11 @@ public class Tree : MonoBehaviour
             {
                 GameControl.instance.UpdateScore(scoreVolue);
                 bat.SetActive(true);
+            }
+            else if(GameControl.instance.score == 2)
+            {
+                GameControl.instance.UpdateScore(scoreVolue);
+                bat2.SetActive(true);
             }
             
         }

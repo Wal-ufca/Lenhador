@@ -148,4 +148,5 @@ MonoBehaviour:
   health: 2
   snake: {fileID: 0}
   bat: {fileID: 0}
+  bat2: {fileID: 0}
   scoreVolue: 1

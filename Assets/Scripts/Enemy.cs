@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class Enemy : MonoBehaviour
 
     private Transform p_player;
     public bool enemy;
+    public bool boss;
 
     // Start is called before the first frame update
     void Start()
@@ -54,10 +58,12 @@ public class Enemy : MonoBehaviour
         {
             if (p_player.position.x > gameObject.transform.position.x)
             {
+                //transform.eulerAngles = new Vector2(0, 180);
                 rig.velocity = new Vector2(1 * speed, rig.velocity.y);
             }
             else if (p_player.position.x < gameObject.transform.position.x)
             {
+                //transform.eulerAngles = new Vector2(0, 0);
                 rig.velocity = new Vector2(-1 * speed, rig.velocity.y);
             }
 
@@ -83,26 +89,31 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+
+            if(boss)
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (enemy)
-        {
+        //if (enemy)
+        //{
             if (collision.gameObject.tag == "Player")
             {
                 collision.gameObject.GetComponent<Player>().Damage(damage);
             }
-        }
-        else
+        //}
+        /*else
         {
             if (collision.gameObject.tag == "Player")
             {
                 collision.gameObject.GetComponent<Player>().Damage(damage);
 
                 //colidir com o inimigo faz o player ser jogado para tras
-                if (transform.rotation.y == 0)
+                if (transform.rotation.y == 180)
                 {
                     transform.position += new Vector3(1f, 0, 0);
 
@@ -112,6 +123,6 @@ public class Enemy : MonoBehaviour
                     transform.position += new Vector3(1f, 0, 0);
                 }
             }
-        }
+        }*/
     }
 }

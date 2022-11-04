@@ -19,6 +19,8 @@ public class GameControl : MonoBehaviour
 
     public static GameControl instance;
 
+    public bool isLv1;
+
     //para pausar o jogo quando tiver em game over
     private bool gO;
 
@@ -68,6 +70,19 @@ public class GameControl : MonoBehaviour
         {
             //para tudo que ta acontecedo no jogo
             Time.timeScale = 0f;
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                //isLv1 = !isLv1;
+                if(isLv1)
+                {
+                    SceneManager.LoadScene(2);
+                }
+                else
+                {
+                    SceneManager.LoadScene(1);
+                }
+
+            }
         }
         else if(!isPoused && !gO)
         {
@@ -88,4 +103,8 @@ public class GameControl : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
