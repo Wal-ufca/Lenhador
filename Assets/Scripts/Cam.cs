@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Cam : MonoBehaviour
 {
+    //transform pega as informacoes de um objeto como posicao 
     private Transform player;
+    //suavidade da camera quando ela segue o player
     public float smooth;
 
     // Start is called before the first frame update
     void Start()
     {
+        //salvanda as "cordenadas" do objeto player em player
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

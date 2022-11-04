@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        //GameControl.instance.UpdadeLives(health);
+        GameControl.instance.UpdadeLives(health);
 
     }
 
@@ -156,13 +156,13 @@ public class Player : MonoBehaviour
             isAttack = true;
             anim.SetInteger("transition", 3);
 
-            //criar a frecha em certa posicao
+            //criar o machado em certa posicao
             GameObject WeaponAttack = Instantiate(weapon1, attackPoint1.position, attackPoint1.rotation);
 
-            //mudar a direcao da frecha
+            //mudar a direcao do machado
             if (transform.rotation.y == 0)
             {
-                // modificar a variavel isRight no script Bow
+                // modificar a variavel isRight no script Weapon
                 WeaponAttack.GetComponent<Weapon>().isRight = true;
 
             }
@@ -178,5 +178,39 @@ public class Player : MonoBehaviour
             anim.SetInteger("transition", 0);
         }
     }
+
+    //dano que o player sofre do inimigo sofre
+    public void Damage(int dmg)
+    {
+        health -= dmg;
+        GameControl.instance.UpdadeLives(health);
+        anim.SetTrigger("hit");
+
+        //colidir com o inimigo faz o player ser jogado para tras
+        if (transform.rotation.y == 0)
+        {
+            transform.position += new Vector3(-0.5f, 0, 0);
+
+        }
+        else // (transform.rotation.y == 180)
+        {
+            transform.position += new Vector3(0.5f, 0, 0);
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            //game over
+            GameControl.instance.GameOver();
+
+        }
+    }
+
+    public void IncreaseLife(int volue)
+    {
+        health += volue;
+        GameControl.instance.UpdadeLives(health);
+    }
+   
 
 }
