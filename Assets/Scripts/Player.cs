@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
         Jump();
         WeaponAttack();
+        Limitacao();
 
     }
 
@@ -93,6 +94,15 @@ public class Player : MonoBehaviour
         {
             //animacao do player para ele parado
             anim.SetInteger("transition", 0);
+        }
+    }
+
+    void Limitacao()
+    {
+        if(transform.position.x < -8)
+        {
+            Debug.Log("oi");
+            transform.position = new Vector2(-8,transform.position.y);
         }
     }
 
