@@ -17,11 +17,14 @@ public class Enemy : MonoBehaviour
 
     private Transform p_player;
     public bool enemy;
-    public bool boss;
+    public int boss;
+    public GameObject dominio;
+    public static  Enemy e;
 
     // Start is called before the first frame update
     void Start()
     {
+        e = this;
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -84,15 +87,28 @@ public class Enemy : MonoBehaviour
     {
         health -= dmg;
         anim.SetTrigger("hit");
+        if (boss == 2)
+        {
+            if (health <= 5)
+            {
+                anim.SetTrigger("t");
+                dominio.SetActive(true);
+                boss = 3;
+            }
+        }
 
         //coferir se o enemy ainda tem vida
         if (health <= 0)
         {
             Destroy(gameObject);
 
-            if(boss)
+            if(boss == 1)
             {
                 SceneManager.LoadScene(2);
+            }
+            else if(boss == 2)
+            {
+                SceneManager.LoadScene(0);
             }
         }
     }

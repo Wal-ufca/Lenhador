@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     private float movement;
 
+    public static Player p;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         GameControl.instance.UpdadeLives(health);
+        p = this;
 
     }
 
@@ -186,15 +189,30 @@ public class Player : MonoBehaviour
         GameControl.instance.UpdadeLives(health);
         anim.SetTrigger("hit");
 
-        //colidir com o inimigo faz o player ser jogado para tras
-        if (transform.rotation.y == 0)
+        if (Enemy.e.boss != 3)
         {
-            transform.position += new Vector3(-0.5f, 0, 0);
+            //colidir com o inimigo faz o player ser jogado para tras
+            if (transform.rotation.y == 0)
+            {
+                transform.position += new Vector3(-0.5f, 0, 0);
 
+            }
+            else // (transform.rotation.y == 180)
+            {
+                transform.position += new Vector3(0.5f, 0, 0);
+            }
         }
-        else // (transform.rotation.y == 180)
+        else if(Enemy.e.boss == 3)
         {
-            transform.position += new Vector3(0.5f, 0, 0);
+            if (transform.rotation.y == 0)
+            {
+                transform.position += new Vector3(-5, 0, 0);
+
+            }
+            else // (transform.rotation.y == 180)
+            {
+                transform.position += new Vector3(5, 0, 0);
+            }
         }
 
         if (health <= 0)
@@ -204,6 +222,12 @@ public class Player : MonoBehaviour
             GameControl.instance.GameOver();
 
         }
+    }
+
+    public void DmgSpeed( int dSpeed)
+    {
+        speed -= dSpeed;
+
     }
 
     public void IncreaseLife(int volue)
