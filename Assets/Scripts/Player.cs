@@ -9,17 +9,19 @@ public class Player : MonoBehaviour
     public float jumpForce = 0;
     public int health = 0;
 
-    //public GameObject bow;
-   // public Transform firePoint;
+    public GameObject weapon1;
+    public Transform attackPoint1;
 
     private bool isJumping;
     private bool doubleJump;
-    private bool isFire;
+    private bool isAttack;
 
     private Rigidbody2D rig;
     private Animator anim;
 
     private float movement;
+
+    public static Player p;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,8 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        //GameControl.instance.UpdadeLives(health);
+        GameControl.instance.UpdadeLives(health);
+        p = this;
 
     }
 
@@ -37,7 +40,8 @@ public class Player : MonoBehaviour
     {
 
         Jump();
-       // BowFire();
+        WeaponAttack();
+        Limitacao();
 
     }
 
@@ -86,10 +90,23 @@ public class Player : MonoBehaviour
         }
 
         /// parado
-        if (movement == 0 && !isJumping /*&& !isFire*/)
+        if (movement == 0 && !isJumping && !isAttack)
         {
             //animacao do player para ele parado
             anim.SetInteger("transition", 0);
+        }
+    }
+
+    void Limitacao()
+    {
+        if(transform.position.x < -8)
+        {
+            transform.position = new Vector2(-8,transform.position.y);
+        }
+
+        if (transform.position.x > 34.3)
+        {
+            transform.position = new Vector2(34.3f, transform.position.y);
         }
     }
 
@@ -138,6 +155,106 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
+
+        if(collision.gameObject.tag == "GameOver")
+        {
+            GameControl.instance.GameOver();
+        }
     }
+
+    //funcao para o player atirar frexa
+    void WeaponAttack()
+    {
+        //chamar a corrotina
+        StartCoroutine("Attack1");
+
+    }
+
+    //criar uma rotina, primeiro faz alguma acao e depois de um determinado tempo faz outra
+    IEnumerator Attack1()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isAttack = true;
+            anim.SetInteger("transition", 3);
+
+            //criar o machado em certa posicao
+            GameObject WeaponAttack = Instantiate(weapon1, attackPoint1.position, attackPoint1.rotation);
+
+            //mudar a direcao do machado
+            if (transform.rotation.y == 0)
+            {
+                // modificar a variavel isRight no script Weapon
+                WeaponAttack.GetComponent<Weapon>().isRight = true;
+
+            }
+
+            if (transform.rotation.y == 180)
+            {
+                WeaponAttack.GetComponent<Weapon>().isRight = false;
+            }
+
+            //tempo em segundo para a executar a proxima acao
+            yield return new WaitForSeconds(0.25f);
+            isAttack = false;
+            anim.SetInteger("transition", 0);
+        }
+    }
+
+    //dano que o player sofre do inimigo sofre
+    public void Damage(int dmg)
+    {
+        health -= dmg;
+        GameControl.instance.UpdadeLives(health);
+        anim.SetTrigger("hit");
+
+        if (Enemy.e.boss != 3)
+        {
+            //colidir com o inimigo faz o player ser jogado para tras
+            if (transform.rotation.y == 0)
+            {
+                transform.position += new Vector3(-0.5f, 0, 0);
+
+            }
+            else // (transform.rotation.y == 180)
+            {
+                transform.position += new Vector3(0.5f, 0, 0);
+            }
+        }
+        else if(Enemy.e.boss == 3)
+        {
+            if (transform.rotation.y == 0)
+            {
+                transform.position += new Vector3(-5, 0, 0);
+
+            }
+            else // (transform.rotation.y == 180)
+            {
+                transform.position += new Vector3(5, 0, 0);
+            }
+            Enemy.e.boss = 4;
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            //game over
+            GameControl.instance.GameOver();
+
+        }
+    }
+
+    public void DmgSpeed( int dSpeed)
+    {
+        speed -= dSpeed;
+
+    }
+
+    public void IncreaseLife(int volue)
+    {
+        health += volue;
+        GameControl.instance.UpdadeLives(health);
+    }
+   
 
 }
