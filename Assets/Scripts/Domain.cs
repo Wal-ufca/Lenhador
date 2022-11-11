@@ -8,7 +8,7 @@ public class Domain : MonoBehaviour
     public int damage;
     public float walkTime;
     private float timer;
-    private int speedMax = 4;
+    private int speedMax = 1;
 
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,12 +30,13 @@ public class Domain : MonoBehaviour
             {
                 Player.p.Damage(damage);
                 //Destroy(gameObject);
-                speedMax -= 1;
-                if (speedMax > 0)
-                {
-                    Player.p.DmgSpeed(1);
-                }
+                //speedMax -= 1;
             }
+        }
+        if (speedMax == 1)
+        {
+            Player.p.DmgSpeed(3);
+            speedMax = 2;
         }
     }
 

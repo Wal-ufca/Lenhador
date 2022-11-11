@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8257812699675808746}
   m_Layer: 0
   m_Name: Enemy_snake
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,9 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  walkTime: 2
   health: 5
   damage: 1
+  enemy: 1
+  boss: 0
+  dominio: {fileID: 0}
 --- !u!50 &8257812699675808746
 Rigidbody2D:
   serializedVersion: 4

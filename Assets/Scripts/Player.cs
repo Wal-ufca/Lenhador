@@ -101,8 +101,12 @@ public class Player : MonoBehaviour
     {
         if(transform.position.x < -8)
         {
-            Debug.Log("oi");
             transform.position = new Vector2(-8,transform.position.y);
+        }
+
+        if (transform.position.x > 34.3)
+        {
+            transform.position = new Vector2(34.3f, transform.position.y);
         }
     }
 
@@ -150,6 +154,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             isJumping = false;
+        }
+
+        if(collision.gameObject.tag == "GameOver")
+        {
+            GameControl.instance.GameOver();
         }
     }
 
@@ -223,6 +232,7 @@ public class Player : MonoBehaviour
             {
                 transform.position += new Vector3(5, 0, 0);
             }
+            Enemy.e.boss = 4;
         }
 
         if (health <= 0)
