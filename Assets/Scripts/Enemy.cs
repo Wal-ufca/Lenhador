@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public int boss;
     public GameObject dominio;
     public static  Enemy e;
+    public GameObject portal;
 
     // Start is called before the first frame update
     void Start()
@@ -118,7 +119,9 @@ public class Enemy : MonoBehaviour
 
             if(boss == 1)
             {
-                SceneManager.LoadScene(2);
+                //SceneManager.LoadScene(2);
+                portal.SetActive(true);
+
             }
             else if(boss == 2)
             {

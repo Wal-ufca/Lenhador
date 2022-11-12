@@ -160,9 +160,15 @@ public class Player : MonoBehaviour
         {
             GameControl.instance.GameOver();
         }
+        if(collision.gameObject.tag =="Portal")
+        {
+
+            Portal.por.aparece = 0;
+            
+        }
     }
 
-    //funcao para o player atirar frexa
+    //funcao para o player atacar
     void WeaponAttack()
     {
         //chamar a corrotina

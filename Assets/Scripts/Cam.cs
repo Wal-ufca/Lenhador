@@ -8,6 +8,7 @@ public class Cam : MonoBehaviour
     private Transform player;
     //suavidade da camera quando ela segue o player
     public float smooth;
+    //public Transform pointCam;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,19 @@ public class Cam : MonoBehaviour
     void LateUpdate()
     {
         //delimitar o movimento da tela pra nao sair do mapa
-        if (player.position.x >= -0.5 && player.position.y <= 5 && player.position.x <= 25.8)
+        if (player.position.x >= -1 && player.position.x <= 28)
         {
             //cria uma variavel com a posicao x do personagem e y e z da camera
-            Vector3 following = new Vector3(player.position.x, player.position.y + 1.2f, transform.position.z);
+            Vector3 following = new Vector3(player.position.x, transform.position.y, transform.position.z);
+
+            //atualizando posicao da camera
+            transform.position = Vector3.Lerp(transform.position, following, smooth * Time.deltaTime);
+        }
+        //delimitar o movimento da tela pra nao sair do mapa
+        if ( player.position.y <= 9.2 && player.position.y >= -1)
+        {
+            //cria uma variavel com a posicao x do personagem e y e z da camera
+            Vector3 following = new Vector3(transform.position.x, player.position.y+0.5f, transform.position.z);
 
             //atualizando posicao da camera
             transform.position = Vector3.Lerp(transform.position, following, smooth * Time.deltaTime);
