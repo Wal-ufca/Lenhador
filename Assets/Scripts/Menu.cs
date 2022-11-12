@@ -21,4 +21,9 @@ public class Menu : MonoBehaviour
         inf.SetActive(false);
         SceneManager.LoadScene(0);
     }
+
+    public void Sair()
+    {
+        Application.Quit();
+    }
 }

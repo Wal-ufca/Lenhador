@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
+//using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
 {
     private Animator anim;
     public static Portal por;
-    public GameObject P;
+    public GameObject jogador;
     public int aparece = 1;
     private float t;
     public float ta;
@@ -36,7 +36,7 @@ public class Portal : MonoBehaviour
         anim.SetInteger("transition", 1);
         if (t > ta )
         {
-            P.SetActive(false);
+            jogador.SetActive(false);
             SceneManager.LoadScene(2);
             aparece = 1;
         }

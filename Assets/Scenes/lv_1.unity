@@ -910,7 +910,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.940347
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -934,7 +934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.29, z: -10}
+  m_LocalPosition: {x: 1.8, y: -0.7, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f19ccd8e5f32846ae68f496b617720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smooth: 2
+  smooth: 10
 --- !u!1 &556844471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,11 +2027,11 @@ GameObject:
   - component: {fileID: 993501927}
   m_Layer: 0
   m_Name: portal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &993501923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2045,7 +2045,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.026973248, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2056,7 +2056,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.125, y: 1.125}
+  m_Size: {x: 0.8013239, y: 1.125}
   m_EdgeRadius: 0
 --- !u!95 &993501924
 Animator:
@@ -2138,7 +2138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993501922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.05, y: -2.45, z: 0}
+  m_LocalPosition: {x: 33.98, y: -2.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2157,6 +2157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2042b008d14ea45a2b332417ad61c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jogador: {fileID: 0}
+  aparece: 1
+  ta: 2
 --- !u!1 &1003789925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4040,8 +4043,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567264055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.67, y: 3.26, z: 0}
-  m_LocalScale: {x: 2.610968, y: 2.610968, z: 2.610968}
+  m_LocalPosition: {x: 15, y: 4, z: 0}
+  m_LocalScale: {x: 2.845045, y: 2.845045, z: 2.845045}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 492664688}
@@ -4418,7 +4421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612432434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.08, y: -0.73, z: 0}
+  m_LocalPosition: {x: 2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
