@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 3
+  health: 2
   damage: 1
   enemy: 0
   boss: 0
   dominio: {fileID: 0}
+  portal: {fileID: 0}

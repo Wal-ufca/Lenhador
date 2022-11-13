@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
     void Limitacao()
     {
-        if(transform.position.x < -8)
+        if(transform.position.x < - 9.5)
         {
             transform.position = new Vector2(-8,transform.position.y);
         }

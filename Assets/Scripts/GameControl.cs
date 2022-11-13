@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
+    public GameObject quest;
+    //public Text qustText;
     public GameObject pausedObg;
     private bool isPoused;
 
@@ -15,7 +17,7 @@ public class GameControl : MonoBehaviour
 
     public int score;
     public Text scoreText;
-    public int totalScore;
+    //public int totalScore;
 
     public static GameControl instance;
 
@@ -35,7 +37,7 @@ public class GameControl : MonoBehaviour
     {
         //instance representa este objeto;
         //instance = this;
-        totalScore = PlayerPrefs.GetInt("score");
+        //totalScore = PlayerPrefs.GetInt("score");
     }
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class GameControl : MonoBehaviour
         scoreText.text = score.ToString();
 
         //o nome "score" pode ser outro nome sem ser o da variavel que se deseja salva
-        PlayerPrefs.SetInt("score", score + totalScore);
+        //PlayerPrefs.SetInt("score", score + totalScore);
     }
    
 
@@ -59,6 +61,13 @@ public class GameControl : MonoBehaviour
         healthText.text = "X" + value.ToString();
     }
 
+
+    public void Mission()
+    {
+        quest.SetActive(false);
+        //opcional
+
+    }
     public void PauseGame()
     {
         if (Input.GetKeyDown(KeyCode.P))
