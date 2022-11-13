@@ -10,11 +10,12 @@ public class Portal : MonoBehaviour
     public static Portal por;
     public GameObject jogador;
     public int aparece = 1;
+    public int level;
     private float t;
     public float ta;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
        anim = GetComponent<Animator>();
         por = this;
@@ -25,19 +26,26 @@ public class Portal : MonoBehaviour
     {
         if(aparece == 0)
         {
-            Animar();
+            Animar(level);
         }
     }
 
-    public void Animar()
+    public void Animar( int lv)
     {
         t += Time.deltaTime;
         Debug.Log(t);
         anim.SetInteger("transition", 1);
         if (t > ta )
         {
-            jogador.SetActive(false);
-            SceneManager.LoadScene(2);
+            if (lv == 1)
+            {
+                //jogador.SetActive(false);
+                SceneManager.LoadScene(2);
+            }
+            else if(lv == 2)
+            {
+                GameControl.instance.End();
+            }
             aparece = 1;
         }
 

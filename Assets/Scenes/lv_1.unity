@@ -1731,6 +1731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest: {fileID: 992118597}
+  end: {fileID: 0}
   pausedObg: {fileID: 556844471}
   GameOverObg: {fileID: 2120781239}
   healthText: {fileID: 1206178718}
@@ -2179,7 +2180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &992118598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2387,6 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jogador: {fileID: 1612432434}
   aparece: 1
+  level: 0
   ta: 2
 --- !u!1 &1003789925
 GameObject:

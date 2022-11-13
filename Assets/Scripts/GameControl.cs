@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour
 {
     public GameObject quest;
     //public Text qustText;
+    public GameObject end;
     public GameObject pausedObg;
     private bool isPoused;
 
@@ -115,5 +116,10 @@ public class GameControl : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void End()
+    {
+        end.SetActive(true);
     }
 }

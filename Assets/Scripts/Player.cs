@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -164,6 +165,7 @@ public class Player : MonoBehaviour
         {
 
             Portal.por.aparece = 0;
+            //Portal.por.level = 1;
             
         }
     }
