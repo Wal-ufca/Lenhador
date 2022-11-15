@@ -1612,7 +1612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1212153908, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
+  m_Sprite: {fileID: -707914069, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2270,7 +2270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 108557725, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
+  m_Sprite: {fileID: 466467687, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2397,7 +2397,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Movimenta\xE7\xE3o"
+  m_Text: "Movimenta\xE7ao"
 --- !u!222 &1156420864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2992,7 +2992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -707914069, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
+  m_Sprite: {fileID: 108557725, guid: c0d3feeb544a01f4bb4661555aff506e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

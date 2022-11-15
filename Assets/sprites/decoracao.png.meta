@@ -308,8 +308,8 @@ TextureImporter:
       name: decoracao_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 100
+        x: 100
+        y: 120
         width: 20
         height: 20
       alignment: 0
@@ -329,7 +329,7 @@ TextureImporter:
       name: decoracao_10
       rect:
         serializedVersion: 2
-        x: 20
+        x: 0
         y: 100
         width: 20
         height: 20
@@ -350,7 +350,7 @@ TextureImporter:
       name: decoracao_11
       rect:
         serializedVersion: 2
-        x: 40
+        x: 20
         y: 100
         width: 20
         height: 20
@@ -371,7 +371,7 @@ TextureImporter:
       name: decoracao_12
       rect:
         serializedVersion: 2
-        x: 60
+        x: 40
         y: 100
         width: 20
         height: 20
@@ -384,6 +384,69 @@ TextureImporter:
       bones: []
       spriteID: 34b4eb6bd9ef0554880ee616fe4130f5
       internalID: 108557725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoracao_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 100
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e0aa5a7898c30478144f20ae416d67
+      internalID: 466467687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoracao_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a315c073484e844861d37c56bffbf3
+      internalID: -210465771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoracao_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c5b9f6136e7104bac2925bb1d8cf47
+      internalID: 1221975472
       vertices: []
       indices: 
       edges: []
@@ -401,8 +464,10 @@ TextureImporter:
     nameFileIdTable:
       decoracao_0: -1636517714
       decoracao_7: 849385972
+      decoracao_13: 466467687
       decoracao_6: 1179132002
       decoracao_4: -476554925
+      decoracao_14: -210465771
       decoracao_10: 1212153908
       decoracao_5: 1270970517
       decoracao_12: 108557725
@@ -412,6 +477,7 @@ TextureImporter:
       decoracao_2: -1580722733
       decoracao_9: 1732177252
       decoracao_1: -2073400732
+      decoracao_15: 1221975472
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -10,6 +10,12 @@ public class Weapon : MonoBehaviour
     public int damage = 0;
 
     public bool isRight;
+    public static Weapon w;
+
+    private void Awake()
+    {
+        w = this;
+    }
 
     // Start is called before the first frame update
     void Start()

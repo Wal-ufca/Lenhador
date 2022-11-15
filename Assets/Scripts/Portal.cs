@@ -15,7 +15,6 @@ public class Portal : MonoBehaviour
     public float ta;
     public GameObject seta;
     Transform player;
-    int smooth=1;
 
     // Start is called before the first frame update
     void Awake()
