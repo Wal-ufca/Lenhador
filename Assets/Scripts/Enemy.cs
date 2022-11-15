@@ -36,7 +36,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+            Move();
+       
 
     }
 
@@ -94,12 +95,12 @@ public class Enemy : MonoBehaviour
             //colidir com o inimigo faz o player ser jogado para tras
             if (transform.rotation.y == 0)
             {
-                transform.position += new Vector3(1, 0, 0);
+                transform.position += new Vector3(0.5f, 0, 0);
 
             }
             else // (transform.rotation.y == 180)
             {
-                transform.position += new Vector3(-1, 0, 0);
+                transform.position += new Vector3(-0.5f, 0, 0);
             }
         }
         if (boss == 2)
@@ -109,6 +110,7 @@ public class Enemy : MonoBehaviour
                 anim.SetTrigger("t");
                 dominio.SetActive(true);
                 boss = 3;
+                speed = 0;
             }
         }
 
@@ -123,9 +125,8 @@ public class Enemy : MonoBehaviour
                 Portal.por.level = 1;
 
             }
-            else if(boss == 4)
+            else if(boss == 4 || boss == 3)
             {
-                Debug.Log("oi");
                 //SceneManager.LoadScene(0);
                 portal.SetActive(true);
                 //Portal.por.aparece = 0;

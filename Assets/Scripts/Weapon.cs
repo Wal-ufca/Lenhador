@@ -15,9 +15,10 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         //rig = GetComponent<Rigidbody2D>();
-
+        Mus.m.Sons(2, 2);
         //destruir o machado depois de um certo tempo
         Destroy(gameObject, 0.25f);
+
     }
 
     // Update is called once per frame
@@ -38,12 +39,14 @@ public class Weapon : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Mus.m.Sons(4, 2);
             collision.GetComponent<Enemy>().Damage(damage);
             Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Arvore")
         {
+            Mus.m.Sons(3, 2);
             collision.GetComponent<Tree>().Damage(damage);
             Destroy(gameObject);
         }

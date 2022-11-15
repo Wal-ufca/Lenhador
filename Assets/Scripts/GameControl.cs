@@ -65,6 +65,7 @@ public class GameControl : MonoBehaviour
 
     public void Mission()
     {
+        Mus.m.Sons(1, 1);
         quest.SetActive(false);
         //opcional
 
@@ -73,6 +74,7 @@ public class GameControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Mus.m.Sons(1, 1);
             isPoused = !isPoused;
             pausedObg.SetActive(isPoused);
         }
@@ -82,8 +84,9 @@ public class GameControl : MonoBehaviour
             Time.timeScale = 0f;
             if(Input.GetKeyDown(KeyCode.S))
             {
+                Mus.m.Sons(1, 1);
                 //isLv1 = !isLv1;
-                if(isLv1)
+                if (isLv1)
                 {
                     SceneManager.LoadScene(2);
                 }
@@ -96,6 +99,7 @@ public class GameControl : MonoBehaviour
         }
         else if(!isPoused && !gO)
         {
+            //Mus.m.Sons(1, 1);
             Time.timeScale = 1f;
         }
     }
@@ -110,16 +114,19 @@ public class GameControl : MonoBehaviour
 
     public void RestartGame()
     {
+        Mus.m.Sons(1, 1);
         SceneManager.LoadScene(1);
     }
     
     public void Menu()
     {
+        Mus.m.Sons(1, 1);
         SceneManager.LoadScene(0);
     }
 
     public void End()
     {
+        Mus.m.Sons(1, 1);
         end.SetActive(true);
     }
 }

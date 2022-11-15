@@ -32,11 +32,13 @@ public class Portal : MonoBehaviour
 
     public void Animar( int lv)
     {
+        //Mus.m.Sons(8,4);
         t += Time.deltaTime;
-        Debug.Log(t);
         anim.SetInteger("transition", 1);
+        
         if (t > ta )
         {
+            //Mus.m.Sons(8,4);
             if (lv == 1)
             {
                 //jogador.SetActive(false);

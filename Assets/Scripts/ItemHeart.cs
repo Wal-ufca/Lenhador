@@ -10,6 +10,7 @@ public class ItemHeart : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //Mus.m.Sons(6, 3);
             collision.gameObject.GetComponent<Player>().IncreaseLife(healtVolue);
             Destroy(gameObject);
         }
