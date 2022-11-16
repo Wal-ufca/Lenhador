@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.32793832, y: -0.33211935}
+  m_Offset: {x: -0.32793838, y: -0.3834207}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9822602, y: 0.8096895}
+  m_Size: {x: 0.7184247, y: 0.7070868}
   m_EdgeRadius: 0
 --- !u!95 &8257812699675808749
 Animator:
@@ -147,11 +147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 5
+  health: 2
   damage: 1
   enemy: 1
   boss: 0
   dominio: {fileID: 0}
+  portal: {fileID: 0}
 --- !u!50 &8257812699675808746
 Rigidbody2D:
   serializedVersion: 4

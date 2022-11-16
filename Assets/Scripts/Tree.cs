@@ -29,36 +29,13 @@ public class Tree : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-   /* void FixedUpdate()
-    {
-        timer += Time.deltaTime;
-
-        if (timer >= walkTime)
-        {
-            walkRight = !walkRight;
-            timer = 0f;
-        }
-
-        if (walkRight)
-        {
-            transform.eulerAngles = new Vector2(0, 180);
-            rig.velocity = Vector2.right * speed;
-        }
-        else
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-            rig.velocity = Vector2.left * speed;
-        }
-    }
-   */
-
     //dano que o enemy vaoi receber ddo player
     public void Damage(int dmg)
     {
         health -= dmg;
 
         //coferir se o enemy ainda tem vida
+        //cortada para nao gerar um monte de inimigos
         if (health <= 0 && !cortada)
         {
             anim.SetTrigger("Cortada");
@@ -88,22 +65,4 @@ public class Tree : MonoBehaviour
             
         }
     }
-
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameControl.instance.UpdateScore(scoreVolue);
-            Destroy(gameObject);
-        }
-    }
-
-     private void OnCollisionEnter2D(Collision2D collision)
-     {
-
-         if (collision.gameObject.tag == "Arma")
-         {
-             collision.gameObject.GetComponent<Player>().Damage(damage);
-         }
-     }*/
 }

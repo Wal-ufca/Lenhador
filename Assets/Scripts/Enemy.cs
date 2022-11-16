@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public int boss;
     public GameObject dominio;
     public static  Enemy e;
+    public GameObject portal;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+            Move();
+       
 
     }
 
@@ -88,17 +90,17 @@ public class Enemy : MonoBehaviour
         health -= dmg;
         anim.SetTrigger("hit");
         
-        if(boss != 2)
+        if(boss != 2 && boss !=4)
         {
             //colidir com o inimigo faz o player ser jogado para tras
             if (transform.rotation.y == 0)
             {
-                transform.position += new Vector3(1, 0, 0);
+                transform.position += new Vector3(0.5f, 0, 0);
 
             }
             else // (transform.rotation.y == 180)
             {
-                transform.position += new Vector3(-1, 0, 0);
+                transform.position += new Vector3(-0.5f, 0, 0);
             }
         }
         if (boss == 2)
@@ -108,6 +110,7 @@ public class Enemy : MonoBehaviour
                 anim.SetTrigger("t");
                 dominio.SetActive(true);
                 boss = 3;
+                speed = 0;
             }
         }
 
@@ -115,14 +118,19 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            if (boss == 1)
+            {
+                //SceneManager.LoadScene(2);
+                portal.SetActive(true);
+                Portal.por.level = 1;
 
-            if(boss == 1)
-            {
-                SceneManager.LoadScene(2);
             }
-            else if(boss == 2)
+            else if(boss == 4 || boss == 3)
             {
-                SceneManager.LoadScene(0);
+                //SceneManager.LoadScene(0);
+                portal.SetActive(true);
+                //Portal.por.aparece = 0;
+                Portal.por.level = 2;
             }
         }
     }

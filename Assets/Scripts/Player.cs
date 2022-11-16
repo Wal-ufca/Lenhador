@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -99,7 +100,7 @@ public class Player : MonoBehaviour
 
     void Limitacao()
     {
-        if(transform.position.x < -8)
+        if(transform.position.x < - 9.5)
         {
             transform.position = new Vector2(-8,transform.position.y);
         }
@@ -119,6 +120,7 @@ public class Player : MonoBehaviour
             //saber se o player estar pulando
             if (!isJumping)
             {
+                Mus.m.Sons(5, 2);
                 //animacao do player para ele pulando
                 anim.SetInteger("transition", 2);
 
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
             {
                 if (doubleJump)
                 {
+                    Mus.m.Sons(5, 2);
                     //animacao do player para ele pulando
                     anim.SetInteger("transition", 2);
 
@@ -160,9 +163,16 @@ public class Player : MonoBehaviour
         {
             GameControl.instance.GameOver();
         }
+        if(collision.gameObject.tag =="Portal")
+        {
+            Mus.m.Sons(8,4);
+            Portal.por.aparece = 0;
+            //Portal.por.level = 1;
+            
+        }
     }
 
-    //funcao para o player atirar frexa
+    //funcao para o player atacar
     void WeaponAttack()
     {
         //chamar a corrotina
@@ -176,6 +186,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttack = true;
+            //Mus.m.Sons(2, 2);
             anim.SetInteger("transition", 3);
 
             //criar o machado em certa posicao
@@ -204,6 +215,7 @@ public class Player : MonoBehaviour
     //dano que o player sofre do inimigo sofre
     public void Damage(int dmg)
     {
+        Mus.m.Sons(7, 3);
         health -= dmg;
         GameControl.instance.UpdadeLives(health);
         anim.SetTrigger("hit");
@@ -252,6 +264,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseLife(int volue)
     {
+        Mus.m.Sons(6,2);
         health += volue;
         GameControl.instance.UpdadeLives(health);
     }

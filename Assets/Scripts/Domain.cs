@@ -36,6 +36,7 @@ public class Domain : MonoBehaviour
         if (speedMax == 1)
         {
             Player.p.DmgSpeed(3);
+            Player.p.Damage(0);
             speedMax = 2;
         }
     }
