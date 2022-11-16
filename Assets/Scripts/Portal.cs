@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
 {
     private Animator anim;
     public static Portal por;
-    public GameObject jogador;
+    //public GameObject jogador;
     public int aparece = 1;
     public int level;
     private float t;

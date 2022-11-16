@@ -13,7 +13,6 @@ public class Mus : MonoBehaviour
     void Awake()
     {
         m = this;
-        // mus = GetComponentsInChildren<AudioSource>();
     }
 
     // Update is called once per frame

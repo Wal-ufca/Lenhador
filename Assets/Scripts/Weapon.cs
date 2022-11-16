@@ -6,8 +6,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     //private Rigidbody2D rig;
-    public float speed = 0;
-    public int damage = 0;
+    public float speed;
+    public int damage ;
 
     public bool isRight;
     public static Weapon w;
@@ -27,18 +27,6 @@ public class Weapon : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-   /* void FixedUpdate()
-    {
-        if (isRight)
-        {
-            rig.velocity = Vector2.right * speed;
-        }
-        else
-        {
-            rig.velocity = Vector2.left * speed;
-        }
-    }*/
 
     //dano que o machado faz ao colidir com o enemy
     private void OnTriggerEnter2D(Collider2D collision)
