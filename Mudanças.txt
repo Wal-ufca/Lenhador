@@ -1,7 +1,3 @@
-mudancas 
-criei mais 3 scripts para os enimes
-
-criei uma nova funcao de dano recebido no player para deferenciar os ataques dos enemes
 
 ---------------------------------------MUDANÇAS------------------------------------------
 
@@ -19,7 +15,7 @@ criei uma nova funcao de dano recebido no player para deferenciar os ataques dos
 
 -----------------------------------------TESTES------------------------------------------
 
-                                Foram feitos 6 testes
+                                Foram feitos 10 testes
 
 1 - foi testado se a vida do EnemyBat diminui de acordo com a funcao damage dele. Foram inseridos diferentes valores e todos os testes retornaram o esperado.
 
@@ -31,12 +27,14 @@ criei uma nova funcao de dano recebido no player para deferenciar os ataques dos
 
 5- Foi testado se o player realmente aumenta a velocidade quando consome um item de velocidade. Foram inseridos diferentes valores e todos os testes retornaram o esperado.
 
-6 - Foi testado se dependendo da posicao do player a seta, que mostra o direcao do portal, aparece e some. Foram inseridos diferentes valores e todos os testes retornaram o esperado.
+=========================================================================================
 
-7 - Foi testado se a EnemySnake é destroida quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dela, dessa forma a vida dela foi acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
+6 - Foi testado se dependendo da posicao do player, a seta, que mostra a direcao do portal, aparece e some. Foram inseridos diferentes valores e todos os testes retornaram o esperado.
 
-8 - Foi testado se o EnemeBat é destroido quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dele, dessa forma a vida dele vai acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
+7 - Foi testado se a EnemySnake é destroida quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dela, dessa forma, a vida dela foi acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
 
-9 - Foi testado se o Player é destroido quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dele, dessa forma a vida dele vai acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
+8 - Foi testado se o EnemeBat é destroido quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dele, dessa forma, a vida dele vai acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
+
+9 - Foi testado se o Player é destroido quando leva sucessivos ataques. Foram inseridos diferentes valores na função damage dele, dessa forma, a vida dele vai acabando aos poucos ate chegar a 0, todo ocorreu como o esperado.
 
 10 - Foi testada a movimentacao do player, se ele ia para direita e esquerda de acordo com as teclas apertadas. Foram inseridos diferentes valores e todos os testes retornaram o esperado. 
