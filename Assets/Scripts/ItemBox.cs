@@ -44,10 +44,11 @@ public class ItemBox : MonoBehaviour
         //GameControl.instance.UpdadeLives(Player.p.health);
     }
 
-    public void Vel()
+    public int Vel(int x)
     {
-        Mus.m.Sons(9, 2);
-        Player.p.speed += 3;
+        //Mus.m.Sons(9, 2);
+        // Player.p.speed += 3;
+        return x;
     }
 
     public void Forca()

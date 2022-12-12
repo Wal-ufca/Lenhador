@@ -15,6 +15,7 @@ public class Portal : MonoBehaviour
     public float ta;
     public GameObject seta;
     Transform player;
+    public bool s;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +34,7 @@ public class Portal : MonoBehaviour
             Animar(level);
             seta.SetActive(true);
         }
-        Seta();
+        Seta(seta.transform.position.x, 32.6);//
     }
     private void LateUpdate()
     {
@@ -70,15 +71,18 @@ public class Portal : MonoBehaviour
 
     }
 
-    void Seta()
+    public void Seta(double xp,double xm)
     {
-        if(seta.transform.position.x > 32.6)
+        if(xp > xm)//32.6
         {
             seta.SetActive(false);
+            s = false;
+
         }
         else
         {
             seta.SetActive(true);
+            s= true;
         }
     }
 }

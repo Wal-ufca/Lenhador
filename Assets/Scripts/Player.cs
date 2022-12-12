@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     //variaveis do player 
     public float speed = 0;
     public float jumpForce = 0;
-    public int health = 0;
+    public int health = 5;
 
     public GameObject weapon1;
     public Transform attackPoint1;
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     private float movement;
+    public bool d;
 
     public static Player p;
 
@@ -49,11 +50,11 @@ public class Player : MonoBehaviour
     //update que melora o desempenho do rigidbody
     private void FixedUpdate()
     {
-        Move();
+        Move(movement);
     }
 
     //funcao que controla a movimentacao
-    void Move()
+    public void Move(float m)
     {
         //quando precionar botoes horizontais retorna valores de -1 a 1 dependendo da direcao desejada esquerda -1 direita 1
         movement = Input.GetAxis("Horizontal");
@@ -63,8 +64,9 @@ public class Player : MonoBehaviour
 
         //mudar a direcao do personagem
         //andando para direita
-        if (movement > 0)
+        if (m > 0)
         {
+            d = true;
            //para nao mudar a animacao quando ele estiver pulando
             if (!isJumping)
             {
@@ -77,8 +79,9 @@ public class Player : MonoBehaviour
 
         }
         //andando para esquerda
-        if (movement < 0)
+        if (m < 0)
         {
+            d=false;
             //para nao mudar a animacao quando ele estiver pulando
             if (!isJumping)
             {
@@ -186,7 +189,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isAttack = true;
-            //Mus.m.Sons(2, 2);
+            Mus.m.Sons(2, 2);
             anim.SetInteger("transition", 3);
 
             //criar o machado em certa posicao
@@ -213,6 +216,33 @@ public class Player : MonoBehaviour
     }
 
     //dano que o player sofre do inimigo sofre
+    public void Damage1(int dmg)
+    {
+        Mus.m.Sons(7, 3);
+        health -= dmg;
+        GameControl.instance.UpdadeLives(health);
+        anim.SetTrigger("hit");
+
+            //colidir com o inimigo faz o player ser jogado para tras
+            if (transform.rotation.y == 0)
+            {
+                transform.position += new Vector3(-0.5f, 0, 0);
+
+            }
+            else // (transform.rotation.y == 180)
+            {
+                transform.position += new Vector3(0.5f, 0, 0);
+            }
+
+        if (health <= 0)
+        {
+            health = 0;
+            //game over
+            GameControl.instance.GameOver();
+
+        }
+    }
+
     public void Damage(int dmg)
     {
         Mus.m.Sons(7, 3);
@@ -233,7 +263,7 @@ public class Player : MonoBehaviour
                 transform.position += new Vector3(0.5f, 0, 0);
             }
         }
-        else if(Enemy.e.boss == 3)
+        else if (Enemy.e.boss == 3)
         {
             if (transform.rotation.y == 0)
             {
@@ -252,6 +282,7 @@ public class Player : MonoBehaviour
             health = 0;
             //game over
             GameControl.instance.GameOver();
+            //DestroyImmediate(gameObject);
 
         }
     }
