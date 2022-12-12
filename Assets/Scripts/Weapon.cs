@@ -34,8 +34,27 @@ public class Weapon : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Mus.m.Sons(4, 2);
-            collision.GetComponent<Enemy>().Damage(damage);
-            Destroy(gameObject);
+            if(GameControl.instance.score == 2)
+            {
+                collision.GetComponent<EnemyBat>().Damage(damage);
+                Destroy(gameObject);
+            }
+            else if (GameControl.instance.score == 1)
+            {
+                collision.GetComponent<EnemySnake>().Damage(damage);
+                Destroy(gameObject);
+            }
+            else if (GameControl.instance.score == 3)
+            {
+                collision.GetComponent<EnemyBoss>().Damage(damage);
+                Destroy(gameObject);
+            }
+            else
+            {
+                collision.GetComponent<Enemy>().Damage(damage);
+                Destroy(gameObject);
+            }
+
         }
 
         if (collision.gameObject.tag == "Arvore")
