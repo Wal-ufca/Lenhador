@@ -7,7 +7,7 @@
 
 - Depois da mudança, o codigo ficou mais simples de entender e tambem deixou mais facil de fazer futuras auterações.
 
-                 Tambem criei mais uma função de dano recebido para player
+                   Criei mais uma função de dano recebido para player
 
 - Antes, uma unica função tratava o dano que o player recebia de todos os enemys e como eles atacavam de maneiras diferentes, a função fazia muitas operações.
 
